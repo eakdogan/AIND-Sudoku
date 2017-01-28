@@ -3,11 +3,25 @@
 
 # Question 1 (Naked Twins)
 Q: How do we use constraint propagation to solve the naked twins problem?  
-A: *Student should provide answer here*
+A: Define a local naked twins constraint:
+- Observe and define a local constraint for a unit: if two cells have exact same two candidates for a solution (naked twins), than no other cells in that unit can have those two digits as solution.
+- Find all the naked twins in a unit
+- Take a naked twin's candidate two digits
+- Eliminate those two digits from other cells in the unit
+- Apply same propagation (find naked twins and eliminate) to other units
+- Repeat until we can not find any more naked twins in a unit
+
+We use naked twins method in conjunction with elimination and only choice methods in sequence repeatedly until we arrive at an un-improvable board. If the board is still unsolved we now start simulating and employ search strategy to arrive at a solution.
 
 # Question 2 (Diagonal Sudoku)
 Q: How do we use constraint propagation to solve the diagonal sudoku problem?  
-A: *Student should provide answer here*
+A: We define a new diagonal units constraint for checking the peers in the elimination method:
+- Create a new diagonal_units array
+- Loop through rows and columns
+- Add the box to the diagonal_units array if they are on one of the diagonals
+- Add diagonal_units to the units array along with other units (square, rows, columns) so it can also be enforced as peers
+
+We use naked twins method in conjunction with elimination and only choice methods in sequence repeatedly until we arrive at an un-improvable board. If the board is still unsolved we now start simulating and employ search strategy to arrive at a solution.
 
 ### Install
 
